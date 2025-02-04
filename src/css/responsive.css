@@ -1,0 +1,274 @@
+@media (max-width: 1160px) {
+
+    .conteudo-principal .swiper-container div .logo-dan-da-dan,
+    .conteudo-principal .swiper-container div .logo-spy-family,
+    .conteudo-principal .swiper-container div .logo-sakamoto-days,
+    .conteudo-principal .swiper-container div .logo-dr-stone,
+    .conteudo-principal .swiper-container div .logo-classroom-of-the-elite {
+        width: 300px;
+        bottom: 45%;
+    }
+
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        top: 46%;
+    }
+
+    .swiper-pagination {
+        margin-bottom: 180px;
+    }
+
+    .anime-list {
+        top: 90%;
+    }
+
+}
+
+@media (max-width: 1060px) {
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        top: 43%;
+    }
+
+}
+
+@media (max-width: 1020px) {
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        top: 41%;
+    }
+
+    .swiper-pagination {
+        margin-bottom: 240px;
+    }
+
+    .button-prev,
+    .button-next {
+        bottom: 255px;
+    }
+
+    .button-prev {
+        left: 2%;
+    }
+
+    .button-next {
+        left: 92%;
+    }
+
+}
+
+@media (max-width: 910px) {
+
+    .conteudo-principal .swiper-container div .logo-dan-da-dan,
+    .conteudo-principal .swiper-container div .logo-spy-family,
+    .conteudo-principal .swiper-container div .logo-sakamoto-days,
+    .conteudo-principal .swiper-container div .logo-dr-stone,
+    .conteudo-principal .swiper-container div .logo-classroom-of-the-elite {
+        width: 250px;
+        bottom: 43%;
+    }
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        top: 38%;
+    }
+
+    .swiper-pagination {
+        margin-bottom: 270px;
+    }
+
+    .button-prev,
+    .button-next {
+        bottom: 230px;
+    }
+
+    .button-prev {
+        left: 2%;
+    }
+
+    .button-next {
+        left: 91%;
+    }
+
+    .anime img {
+        width: 240px;
+    }
+
+}
+
+@media (max-width: 865px) {
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        top: 36%;
+    }
+
+    .swiper-pagination {
+        margin-bottom: 290px;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .conteudo-principal .swiper-container div .logo-dan-da-dan,
+    .conteudo-principal .swiper-container div .logo-spy-family,
+    .conteudo-principal .swiper-container div .logo-sakamoto-days,
+    .conteudo-principal .swiper-container div .logo-dr-stone,
+    .conteudo-principal .swiper-container div .logo-classroom-of-the-elite {
+        width: 200px;
+        bottom: 43%;
+    }
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        top: 34%;
+    }
+
+    .swiper-pagination {
+        margin-bottom: 350px;
+    }
+
+    .anime-list {
+        box-shadow: 0px -42px 72px 0px var(--blackout);
+        -webkit-box-shadow: 0px -42px 72px 0px var(--blackout);
+        -moz-box-shadow: 0px -42px 72px 0px var(--blackout);
+    }
+
+}
+
+@media (max-width: 765px) {
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        top: 32%;
+    }
+
+    .swiper-pagination {
+        margin-bottom: 380px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .conteudo-principal .swiper-container div .logo-dan-da-dan,
+    .conteudo-principal .swiper-container div .logo-spy-family,
+    .conteudo-principal .swiper-container div .logo-sakamoto-days,
+    .conteudo-principal .swiper-container div .logo-dr-stone,
+    .conteudo-principal .swiper-container div .logo-classroom-of-the-elite {
+        display: none;
+    }
+
+    .conteudo-principal .swiper-container div .imagem-destaque {
+        display: none;
+    }
+
+    .conteudo-principal .swiper-container div .imagem-destaque-mobile {
+        display: block;
+    }
+
+    .conteudo-principal .swiper-container .swiper-button-next,
+    .conteudo-principal .swiper-container .swiper-button-prev {
+        display: none;
+    }
+
+    .swiper-pagination {
+        display: none;
+    }
+
+    .button-prev,
+    .button-next {
+        display: none;
+    }
+
+    .anime-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-x: hidden;
+        box-shadow: none;
+        padding: 50px 20px;
+    }
+
+    .anime img {
+        width: 230px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 0 60px;
+    }
+
+    .header .nome-do-site h1 {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .conteudo-principal .swiper-container div .imagem-destaque-mobile {
+        height: 115vh;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .header .nome-do-site h1 {
+        display: none;
+    }
+
+    .header .nome-do-site h2 {
+        display: block;
+        width: 35px;
+        font-size: 2.5rem;
+    }
+
+    .conteudo-principal .swiper-container div .imagem-destaque-mobile {
+        height: 105vh;
+    }
+
+}
+
+@media (max-width: 481px) {
+
+    .conteudo-principal .swiper-container div .imagem-destaque-mobile {
+        height: 90vh;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .conteudo-principal .swiper-container div .imagem-destaque-mobile {
+        height: 82vh;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .header {
+        padding: 0 40px;
+    }
+
+    .conteudo-principal .swiper-container div .imagem-destaque-mobile {
+        height: 72vh;
+    }
+
+}
+
+@media (max-width: 385px) {
+
+    .conteudo-principal .swiper-container div .imagem-destaque-mobile {
+        height: 70vh;
+    }
+
+}

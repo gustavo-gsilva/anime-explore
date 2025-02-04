@@ -1,0 +1,301 @@
+html {
+    font-size: 62.5%;
+    font-family: 'Lato', sans-serif;
+    background-color: var(--blackout);
+    overflow-x: hidden;
+}
+
+/* SELETORES DO HEADER */
+
+.header {
+    width: 100vw;
+    padding: 0 120px 0 75px;
+    height: 53px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--midnight-slate);
+    position: fixed;
+    z-index: 100;
+}
+
+.header .nome-do-site h1 {
+    font-size: 3rem;
+    color: var(--volcanic-orange);
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.header .nome-do-site h2 {
+    font-size: 3rem;
+    color: var(--volcanic-orange);
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    border: 2px solid var(--volcanic-orange);
+    border-radius: 50%;
+    width: 40px;
+    text-align: center;
+    display: none;
+}
+
+.header .nome-do-site h1:hover {
+    color: var(--silver-lining);
+    transition: 0.3s ease-in-out;
+}
+
+.header .nome-do-site h2:hover {
+    color: var(--silver-lining);
+    border: 2px solid var(--silver-lining);
+    transition: 0.3s ease-in-out;
+}
+
+.header .container-elementos-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header .container-elementos-header #icone-de-pesquisa-campo {
+    display: none;
+    position: fixed;
+    font-size: 2.2rem;
+    color: var(--silver-lining);
+    cursor: pointer;
+    z-index: 3;
+    margin-left: 5px;
+}
+
+.header .container-elementos-header input {
+    display: none;
+    width: 220px;
+    height: 35px;
+    border: none;
+    background-color: var(--blackout);
+    color: var(--silver-lining);
+    padding-left: 30px;
+}
+
+.header .container-elementos-header #icone-de-pesquisa {
+    width: auto;
+    font-size: 2.2rem;
+    color: var(--silver-lining);
+    cursor: pointer;
+    z-index: 4;
+    padding: 15px 20px;
+}
+
+.header .container-elementos-header #icone-de-pesquisa:hover {
+    background-color: var(--void-shadow);
+    transition: 0.2s ease-in-out;
+}
+
+/* SELETORES DOS CONTEÚDOS PRINCIPAIS */
+
+.conteudo-principal .anime-list-2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 100px 0 50px 0;
+    display: none;
+}
+
+.conteudo-principal .swiper-container .swiper-wrapper {
+    display: flex;
+}
+
+.conteudo-principal .swiper-container div .imagem-destaque {
+    width: 100vw;
+}
+
+.conteudo-principal .swiper-container div .imagem-destaque-mobile {
+    width: 100vw;
+    height: 140vh;
+    display: none;
+}
+
+.conteudo-principal .swiper-container div .logo-dan-da-dan,
+.conteudo-principal .swiper-container div .logo-spy-family,
+.conteudo-principal .swiper-container div .logo-sakamoto-days,
+.conteudo-principal .swiper-container div .logo-dr-stone,
+.conteudo-principal .swiper-container div .logo-classroom-of-the-elite {
+    width: 350px;
+    position: absolute;
+    left: 7%;
+    bottom: 50%;
+}
+
+.conteudo-principal .swiper-container .swiper-button-next,
+.conteudo-principal .swiper-container .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+    filter: grayscale(100%) invert(0.6);
+}
+
+.conteudo-principal .swiper-container .swiper-button-next:hover,
+.conteudo-principal .swiper-container .swiper-button-prev:hover {
+    filter: grayscale(100%) invert(0.9);
+    transition: 0.2s ease-in-out;
+}
+
+.swiper-pagination {
+    margin-bottom: 90px;
+}
+
+span.swiper-pagination-bullet {
+    background-color: var(--dawn-gray);
+}
+
+span.swiper-pagination-bullet:hover {
+    background-color: var(--silver-lining);
+    transition: 0.2s ease-in-out;
+}
+
+.anime-list {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    z-index: 3;
+    background-color: var(--blackout);
+    box-shadow: -1px -29px 208px 122px var(--blackout);
+    -webkit-box-shadow: -1px -29px 208px 122px var(--blackout);
+    -moz-box-shadow: -1px -29px 208px 122px var(--blackout);
+    padding: 0 35px 40px 35px;
+    overflow-x: auto;
+}
+
+.anime-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.anime-list::-webkit-scrollbar-thumb {
+    background-color: var(--blackout);
+    border-radius: 10px;
+    border: 3px solid var(--blackout);
+}
+
+.anime-list::-webkit-scrollbar-track {
+    background-color: var(--night-fade);
+    border-radius: 10px;
+}
+
+.button-prev,
+.button-next {
+    position: relative;
+    z-index: 4;
+    bottom: 270px;
+    width: 28px;
+    height: 28px;
+    filter: grayscale(100%) invert(0.6);
+    cursor: pointer;
+}
+
+.button-prev:hover,
+.button-next:hover {
+    filter: grayscale(100%) invert(0.9);
+    transition: 0.2s ease-in-out;
+}
+
+.button-prev {
+    left: 2%;
+}
+
+.button-next {
+    left: 94%;
+}
+
+.anime {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--night-fade);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+    padding: 15px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.overlay h2,
+.overlay p {
+    margin: 5px 0;
+}
+
+.overlay p {
+    max-height: 170px;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.5em;
+    overflow-y: scroll;
+}
+
+.overlay p::-webkit-scrollbar {
+    width: 10px;
+}
+
+.overlay p::-webkit-scrollbar-thumb {
+    background-color: var(--dawn-gray);
+    border-radius: 10px;
+    border: 3px solid var(--silver-lining);
+}
+
+.overlay p::-webkit-scrollbar-track {
+    background-color: var(--night-fade);
+    border-radius: 10px;
+}
+
+.overlay p::-webkit-scrollbar-thumb:active {
+    background-color: var(--void-shadow);
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.anime img {
+    width: 280px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: -1px -53px 162px 10px var(--shadow-veil);
+    -webkit-box-shadow: -1px -53px 162px 10px var(--shadow-veil);
+    -moz-box-shadow: -1px -53px 162px 10px var(--shadow-veil);
+}
+
+.anime h2 {
+    font-size: 18px;
+    color: var(--silver-lining);
+}
+
+.anime p {
+    color: var(--silver-lining);
+}
+
+.anime-not-found {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    z-index: 90;
+}
+
+.anime-not-found p {
+    margin: 0;
+    text-align: center;
+}

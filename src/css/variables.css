@@ -1,0 +1,10 @@
+:root {
+    --silver-lining: rgb(218, 218, 218);
+    --volcanic-orange: rgb(255, 100, 10);
+    --midnight-slate: #23252b;
+    --void-shadow: #0e0e10;
+    --dawn-gray: #999999;
+    --blackout: rgba(0, 0, 0, 1);
+    --night-fade: rgba(0, 0, 0, 0.8);
+    --shadow-veil: rgba(0, 0, 0, 0.86);
+}
