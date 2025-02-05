@@ -282,3 +282,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// =======================================
+// FUNÇÃO DE BLOQUEIO DO SCROLL HORIZONTAL
+// =======================================
+
+window.addEventListener('touchmove', function (e) {
+    if (window.scrollX !== 0) {
+        window.scrollTo(0, 0);
+    }
+}, { passive: false });
