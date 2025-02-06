@@ -3,6 +3,7 @@ html {
     font-family: 'Lato', sans-serif;
     background-color: var(--blackout);
     overflow-x: hidden;
+    width: 100vw;
 }
 
 /* SELETORES DO HEADER */

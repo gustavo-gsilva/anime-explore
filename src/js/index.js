@@ -282,13 +282,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-// =======================================
-// FUNÇÃO DE BLOQUEIO DO SCROLL HORIZONTAL
-// =======================================
-
-window.addEventListener('scroll', function () {
-    if (window.scrollX !== 0) {
-        window.scrollTo(0, window.scrollY); // Mantém o scroll Y intacto e corrige o X
-    }
-});
