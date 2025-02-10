@@ -112,8 +112,9 @@ html {
 
 .conteudo-principal .swiper-container div .imagem-destaque-mobile {
     width: 100vw;
-    height: 140vh;
+    height: 100vh;
     display: none;
+    object-fit: contain;
 }
 
 .conteudo-principal .swiper-container div .logo-dan-da-dan,
