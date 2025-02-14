@@ -1,22 +1,85 @@
-// ==============================
-// FUNÇÕES DE CARROSEL DE IMAGENS
-// ==============================
+// ====================
+// FUNÇÕES DO CARROSSEL
+// ====================
 
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-        delay: 5000,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    spaceBetween: 20,
-    slidesPerView: 1,
+const prevButton = document.querySelector('.seta-voltar');
+const nextButton = document.querySelector('.seta-proximo');
+const marcadores = document.querySelectorAll('.marcador');
+const slide = document.getElementById('slide');
+const slideMobile = document.getElementById('slide-mobile');
+const images = slide.querySelectorAll('img');
+const mobileImages = slideMobile.querySelectorAll('img');
+
+let currentIndex = 0;
+let mobileIndex = 0;
+
+function getContainerWidth(slideElement) {
+    return slideElement.clientWidth;
+}
+
+function updateActiveMarker(index) {
+    marcadores.forEach((marcador, i) => {
+        if (i === index) {
+            marcador.classList.add('ativo');
+        } else {
+            marcador.classList.remove('ativo');
+        }
+    });
+}
+
+function scrollToSlide(index, slideElement) {
+    const containerWidth = getContainerWidth(slideElement);
+    slideElement.scrollTo({
+        left: containerWidth * index,
+        behavior: 'smooth'
+    });
+
+    updateActiveMarker(index);
+}
+
+nextButton.addEventListener('click', function () {
+    const nextIndex = currentIndex + 1 < images.length ? currentIndex + 1 : 0;
+    currentIndex = nextIndex;
+    scrollToSlide(currentIndex, slide);
+
+    const mobileNextIndex = mobileIndex + 1 < mobileImages.length ? mobileIndex + 1 : 0;
+    mobileIndex = mobileNextIndex;
+    scrollToSlide(mobileIndex, slideMobile);
+});
+
+prevButton.addEventListener('click', function () {
+    const prevIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : images.length - 1;
+    currentIndex = prevIndex;
+    scrollToSlide(currentIndex, slide);
+
+    const mobilePrevIndex = mobileIndex - 1 >= 0 ? mobileIndex - 1 : mobileImages.length - 1;
+    mobileIndex = mobilePrevIndex;
+    scrollToSlide(mobileIndex, slideMobile);
+});
+
+marcadores.forEach((marcador, index) => {
+    marcador.addEventListener('click', function () {
+        currentIndex = index;
+        scrollToSlide(index, slide);
+        mobileIndex = index;
+        scrollToSlide(index, slideMobile);
+    });
+});
+
+function autoSlide() {
+    const nextIndex = currentIndex + 1 < images.length ? currentIndex + 1 : 0;
+    currentIndex = nextIndex;
+    scrollToSlide(currentIndex, slide);
+
+    const mobileNextIndex = mobileIndex + 1 < mobileImages.length ? mobileIndex + 1 : 0;
+    mobileIndex = mobileNextIndex;
+    scrollToSlide(mobileIndex, slideMobile);
+}
+
+let autoSlideInterval = setInterval(autoSlide, 4000);
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateActiveMarker(0);
 });
 
 // ==============
@@ -102,6 +165,9 @@ function criarAnimeElement(anime) {
 
 async function exibirAnimes() {
     try {
+        const telaDeCarregamento = document.getElementById('loading-screen');
+        telaDeCarregamento.style.display = 'flex';
+
         const animeListContainer = document.getElementById('anime-list');
 
         const animesPopulares = await requisicao();
@@ -118,9 +184,13 @@ async function exibirAnimes() {
         animeListContainer.innerHTML = '';
         animeListContainer.appendChild(fragment);
 
+        telaDeCarregamento.style.display = 'none';
+
     } catch (error) {
         console.error('Erro ao exibir animes:', error);
         alert("Ocorreu um erro ao carregar os dados. Tente novamente mais tarde.");
+
+        document.getElementById('loading-screen').style.display = 'none';
     }
 };
 
@@ -162,10 +232,9 @@ iconeDePesquisaCampo.addEventListener('click', () => {
 // FUNÇÕES QUE REALIZAM A BUSCA POR ANIMES E ATUALIZAM A TELA COM OS RESULTADOS OU MENSAGEM DE ERRO
 // ===================================================================================================
 
-const telaInicial = document.querySelector('.swiper-container');
 const animeList = document.getElementById('anime-list');
-const nextButton = document.getElementById('next');
-const prevButton = document.getElementById('prev');
+const containerCarrossel = document.querySelector('.container-carrossel');
+const containerAnimeList = document.querySelector('.container-anime-list');
 let requisicaoEmAndamento = false;
 let campoDePesquisaAnterior = '';
 
@@ -182,6 +251,9 @@ async function requisicaoCampoDePesquisa() {
     const url = `https://kitsu.io/api/edge/anime?filter[text]=${campoDePesquisa}`;
 
     try {
+        const telaDeCarregamento = document.getElementById('loading-screen');
+        telaDeCarregamento.style.display = 'flex';
+
         const response = await fetch(url);
         const data = await response.json();
 
@@ -227,11 +299,11 @@ async function requisicaoCampoDePesquisa() {
                 animeList2.appendChild(animeDiv);
             });
 
+            telaDeCarregamento.style.display = 'none';
+            containerAnimeList.style.display = 'none';
+            containerCarrossel.style.display = 'none';
             animeList2.style.display = 'flex';
-            telaInicial.style.display = 'none';
             animeList.style.display = 'none';
-            prevButton.style.display = 'none';
-            nextButton.style.display = 'none';
         } else {
             const errorMessage = document.createElement('div');
             errorMessage.classList.add('anime-not-found');
@@ -239,12 +311,16 @@ async function requisicaoCampoDePesquisa() {
 
             document.body.appendChild(errorMessage);
 
-            telaInicial.style.display = 'none';
+            telaDeCarregamento.style.display = 'none';
+            containerAnimeList.style.display = 'none';
+            containerCarrossel.style.display = 'none';
             animeList.style.display = 'none';
             animeList2.style.display = 'none';
         }
     } catch (error) {
         console.error('Erro na requisição:', error);
+
+        document.getElementById('loading-screen').style.display = 'none';
     } finally {
         requisicaoEmAndamento = false;
         document.getElementById('campo-de-pesquisa').disabled = false;
@@ -261,23 +337,30 @@ document.getElementById('campo-de-pesquisa').addEventListener('keypress', functi
 // FUNÇÃO DO CARROSEL DA LISTA DOS ANIMES QUE SÃO EXIBIDOS PELA API
 // ================================================================
 
+const prevButtonList = document.querySelector('.seta-voltar-lista');
+const nextButtonList = document.querySelector('.seta-proximo-lista');
+
 document.addEventListener('DOMContentLoaded', function () {
-    const nextButton = document.getElementById('next');
-    const prevButton = document.getElementById('prev');
     const animeList = document.getElementById('anime-list');
 
-    const containerWidth = animeList.offsetWidth;
+    function getContainerWidth() {
+        return slide.clientWidth;
+    }
 
-    nextButton.addEventListener('click', function () {
+    prevButtonList.addEventListener('click', function () {
+        const containerWidth = getContainerWidth();
+
         animeList.scrollBy({
-            left: containerWidth,
+            left: -containerWidth,
             behavior: 'smooth'
         });
     });
 
-    prevButton.addEventListener('click', function () {
+    nextButtonList.addEventListener('click', function () {
+        const containerWidth = getContainerWidth();
+
         animeList.scrollBy({
-            left: -containerWidth,
+            left: containerWidth,
             behavior: 'smooth'
         });
     });

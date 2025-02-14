@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime Explore</title>
 
     <link rel="stylesheet" href="./src/css/reset.css">
@@ -20,8 +20,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
@@ -46,73 +44,51 @@
     </header>
 
     <main class="conteudo-principal">
-        <div class="anime-list-2"></div> <!-- CONTAINER DE EXIBIÇÃO DOS ANIMES PESQUISADOS -->
-
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img class="imagem-destaque" src="./src/images/capa-dan-da-dan.jpg" alt="Capa Dan Da Dan">
-
-                    <img class="imagem-destaque-mobile" src="./src/images/capa-dan-da-dan-mobile.png"
-                        alt="Capa Dan Da Dan Mobile">
-
-                    <img class="logo-dan-da-dan" src="./src/images/logo-dan-da-dan.png" alt="Logo do Anime Dan Da Dan">
-                </div>
-
-                <div class="swiper-slide">
-                    <img class="imagem-destaque" src="./src/images/capa-spy-x-family.png" alt="Capa Spy x Family">
-
-                    <img class="imagem-destaque-mobile" src="./src/images/capa-spy-x-family-mobile.png"
-                        alt="Capa Spy x Family Mobile">
-
-                    <img class="logo-spy-family" src="./src/images/logo-spy-x-family.webp"
-                        alt="Logo do Anime Spy x Family">
-                </div>
-
-                <div class="swiper-slide">
-                    <img class="imagem-destaque" src="./src/images/capa-sakamoto-days.jpg" alt="Capa Sakamoto Days">
-
-                    <img class="imagem-destaque-mobile" src="./src/images/capa-sakamoto-days-mobile.png"
-                        alt="Capa Sakamoto Days Mobile">
-
-                    <img class="logo-sakamoto-days" src="./src/images/logo-sakamoto-days.png"
-                        alt="Logo do Anime Sakamoto Days">
-                </div>
-
-                <div class="swiper-slide">
-                    <img class="imagem-destaque" src="./src/images/capa-dr-stone.jpg" alt="Capa Dr.Stone">
-
-                    <img class="imagem-destaque-mobile" src="./src/images/capa-dr-stone-mobile.png"
-                        alt="Capa Dr.Stone Mobile">
-
-                    <img class="logo-dr-stone" src="./src/images/logo-dr-stone.png" alt="Logo do Anime Dr.Stone">
-                </div>
-
-                <div class="swiper-slide">
-                    <img class="imagem-destaque" src="./src/images/capa-classroom-of-the-elite.png"
-                        alt="Capa Classroom of the Elite">
-
-                    <img class="imagem-destaque-mobile" src="./src/images/capa-classroom-of-the-elite-mobile.png"
-                        alt="Capa Classroom of the Elite Mobile">
-
-                    <img class="logo-classroom-of-the-elite" src="./src/images/logo-classroom-of-the-elite.png"
-                        alt="Logo do Anime Classroom of the Elite">
-                </div>
-            </div>
-
-            <img class="swiper-button-prev" src="./src/images/icon-previous.svg" alt="Seta Esquerda">
-            <img class="swiper-button-next" src="./src/images/icon-next.svg" alt="Seta Direita">
-
-            <div class="swiper-pagination"></div> <!-- MARCAÇÕES DO CARROSEL -->
+        <div id="loading-screen">
+            <div class="loader"></div>
         </div>
 
-        <div class="anime-list" id="anime-list"></div> <!-- CONTAINER DE EXIBIÇÃO DOS ANIMES -->
-        <img id="prev" class="button-prev" src="./src/images/icon-previous.svg" alt="Seta Esquerda">
-        <img id="next" class="button-next" src="./src/images/icon-next.svg" alt="Seta Direita">
+        <div class="anime-list-2"></div> <!-- CONTAINER DE EXIBIÇÃO DOS ANIMES PESQUISADOS -->
+
+        <div class="container-carrossel">
+
+            <img class="seta-voltar" src="./src/images/icon-previous.svg" alt="seta voltar">
+            <img class="seta-proximo" src="./src/images/icon-next.svg" alt="seta proximo">
+
+            <div id="slide" class="slide">
+                <img class="imagem-principal" src="./src/images/capa-dr-stone.jpg" alt="Capa Dr.Stone">
+                <img class="imagem-principal" src="./src/images/capa-dan-da-dan.jpg" alt="Capa Dan Da Dan">
+                <img class="imagem-principal" src="./src/images/capa-classroom-of-the-elite.png"
+                    alt="Capa Classroom of the Elite">
+                <img class="imagem-principal" src="./src/images/capa-sakamoto-days.jpg" alt="Capa Sakamoto Days">
+                <img class="imagem-principal" src="./src/images/capa-spy-x-family.png" alt="Capa Spy x Family">
+            </div>
+            <div class="marcadores-container">
+                <span class="marcador" data-index="0"></span>
+                <span class="marcador" data-index="1"></span>
+                <span class="marcador" data-index="2"></span>
+                <span class="marcador" data-index="3"></span>
+                <span class="marcador" data-index="4"></span>
+            </div>
+
+            <div id="slide-mobile" class="slide-mobile">
+                <img class="imagem-principal" src="./src/images/capa-dr-stone-mobile.png" alt="Capa Dr.Stone Mobile">
+                <img class="imagem-principal" src="./src/images/capa-dan-da-dan-mobile.png" alt="Capa Dan Da Dan Mobile">
+                <img class="imagem-principal" src="./src/images/capa-classroom-of-the-elite-mobile.png" alt="Capa Classroom of the Elite Mobile">
+                <img class="imagem-principal" src="./src/images/capa-sakamoto-days-mobile.png" alt="Capa Sakamoto Days Mobile">
+                <img class="imagem-principal" src="./src/images/capa-spy-x-family-mobile.png" alt="Capa Spy x Family Mobile">
+            </div>
+        </div>
+
+        <div class="container-anime-list">
+            <img class="seta-voltar-lista" src="./src/images/icon-previous.svg" alt="seta voltar">
+            <img class="seta-proximo-lista" src="./src/images/icon-next.svg" alt="seta proximo">
+
+            <div class="anime-list" id="anime-list"></div> <!-- CONTAINER DE EXIBIÇÃO DOS ANIMES -->
+        </div>
     </main>
 
     <script src="https://kit.fontawesome.com/9707c16123.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./src/js/index.js"></script>
 </body>
 

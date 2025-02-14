@@ -102,69 +102,124 @@ html {
     display: none;
 }
 
-.conteudo-principal .swiper-container .swiper-wrapper {
+.conteudo-principal .container-carrossel {
     display: flex;
+    position: relative;
 }
 
-.conteudo-principal .swiper-container div .imagem-destaque {
+.conteudo-principal .container-carrossel .seta-voltar,
+.conteudo-principal .container-carrossel .seta-proximo {
+    width: 27px;
+    position: absolute;
+    top: 45%;
+    bottom: 20px;
+    left: 2%;
+    cursor: pointer;
+    filter: grayscale(100%) invert(0.9);
+    transition: all 0.4s;
+
+    &:hover {
+        filter: grayscale(100%) invert(0.4);
+        transform: scale(1.2);
+    }
+}
+
+.conteudo-principal .container-carrossel .seta-proximo {
+    left: 95%;
+}
+
+.conteudo-principal .container-carrossel .slide {
+    display: flex;
+    overflow: hidden;
     width: 100vw;
 }
 
-.conteudo-principal .swiper-container div .imagem-destaque-mobile {
+.conteudo-principal .container-carrossel .slide .imagem-principal {
+    width: 100%;
+    flex: 0 0 100vw;
+    object-fit: cover;
+}
+
+.marcadores-container {
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50px);
+}
+
+.marcador {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: var(--silver-lining);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    &:hover {
+        background-color: var(--dawn-gray);
+        transform: scale(1.4);
+    }
+}
+
+.marcador.ativo {
+    background-color: var(--volcanic-orange);
+    transform: scale(1.2);
+}
+
+.conteudo-principal .container-carrossel .slide-mobile {
+    display: none;
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
-    display: none;
-    object-fit: contain;
 }
 
-.conteudo-principal .swiper-container div .logo-dan-da-dan,
-.conteudo-principal .swiper-container div .logo-spy-family,
-.conteudo-principal .swiper-container div .logo-sakamoto-days,
-.conteudo-principal .swiper-container div .logo-dr-stone,
-.conteudo-principal .swiper-container div .logo-classroom-of-the-elite {
-    width: 350px;
+.conteudo-principal .container-carrossel .slide-mobile .imagem-principal {
+    width: 100%;
+    flex: 0 0 100vw;
+    object-fit: cover;
+}
+
+.conteudo-principal .container-anime-list {
+    position: relative;
+}
+
+.conteudo-principal .seta-voltar-lista,
+.conteudo-principal .seta-proximo-lista {
+    width: 18px;
     position: absolute;
-    left: 7%;
-    bottom: 50%;
-}
-
-.conteudo-principal .swiper-container .swiper-button-next,
-.conteudo-principal .swiper-container .swiper-button-prev {
-    width: 35px;
-    height: 35px;
-    filter: grayscale(100%) invert(0.6);
-}
-
-.conteudo-principal .swiper-container .swiper-button-next:hover,
-.conteudo-principal .swiper-container .swiper-button-prev:hover {
+    top: 42%;
+    bottom: 20px;
+    left: 2%;
+    z-index: 10;
+    cursor: pointer;
     filter: grayscale(100%) invert(0.9);
-    transition: 0.2s ease-in-out;
+    transition: all 0.4s;
+
+    &:hover {
+        filter: grayscale(100%) invert(0.4);
+        transform: scale(1.4);
+    }
 }
 
-.swiper-pagination {
-    margin-bottom: 90px;
+.conteudo-principal .seta-proximo-lista {
+    left: 96%;
 }
 
-span.swiper-pagination-bullet {
-    background-color: var(--dawn-gray);
-}
-
-span.swiper-pagination-bullet:hover {
-    background-color: var(--silver-lining);
-    transition: 0.2s ease-in-out;
-}
+/* SELETORES DOS ELEMENTOS DA API */
 
 .anime-list {
     display: flex;
-    gap: 20px;
     position: relative;
+    gap: 20px;
     z-index: 3;
-    background-color: var(--blackout);
-    box-shadow: -1px -29px 208px 122px var(--blackout);
-    -webkit-box-shadow: -1px -29px 208px 122px var(--blackout);
-    -moz-box-shadow: -1px -29px 208px 122px var(--blackout);
-    padding: 0 35px 40px 35px;
+    padding: 0 35px 30px 35px;
     overflow-x: auto;
+    box-shadow: 0px -158px 188px 64px rgba(0, 0, 0, 0.9);
+    -webkit-box-shadow: 0px -158px 188px 64px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0px -158px 188px 64px rgba(0, 0, 0, 0.9);
 }
 
 .anime-list::-webkit-scrollbar {
@@ -180,31 +235,6 @@ span.swiper-pagination-bullet:hover {
 .anime-list::-webkit-scrollbar-track {
     background-color: var(--night-fade);
     border-radius: 10px;
-}
-
-.button-prev,
-.button-next {
-    position: relative;
-    z-index: 4;
-    bottom: 270px;
-    width: 28px;
-    height: 28px;
-    filter: grayscale(100%) invert(0.6);
-    cursor: pointer;
-}
-
-.button-prev:hover,
-.button-next:hover {
-    filter: grayscale(100%) invert(0.9);
-    transition: 0.2s ease-in-out;
-}
-
-.button-prev {
-    left: 2%;
-}
-
-.button-next {
-    left: 94%;
 }
 
 .anime {
@@ -269,9 +299,6 @@ span.swiper-pagination-bullet:hover {
     width: 280px;
     height: auto;
     border-radius: 5px;
-    box-shadow: -1px -53px 162px 10px var(--shadow-veil);
-    -webkit-box-shadow: -1px -53px 162px 10px var(--shadow-veil);
-    -moz-box-shadow: -1px -53px 162px 10px var(--shadow-veil);
 }
 
 .anime h2 {
@@ -300,4 +327,38 @@ span.swiper-pagination-bullet:hover {
 .anime-not-found p {
     margin: 0;
     text-align: center;
+}
+
+/* SELETORES DA TELA DE CARREGAMENTO */
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--midnight-slate);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 4px solid var(--silver-lining);
+    border-top: 4px solid var(--volcanic-orange);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
