@@ -7,4 +7,5 @@
     --blackout: rgba(0, 0, 0, 1);
     --night-fade: rgba(0, 0, 0, 0.8);
     --shadow-veil: rgba(0, 0, 0, 0.86);
+    --dark-transparent-bg: rgba(35, 37, 43, 0.1);
 }

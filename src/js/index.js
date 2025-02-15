@@ -82,6 +82,37 @@ document.addEventListener('DOMContentLoaded', function () {
     updateActiveMarker(0);
 });
 
+// ================================
+// FUNÇÃO DE TROCAR COR DO HEADER
+// ================================
+
+const header = document.querySelector('header');
+const mediaQuery = window.matchMedia('(max-width: 500px)');
+
+function handleScroll() {
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > 2) {
+        header.style.backgroundColor = '#23252b';
+    } else {
+        header.style.backgroundColor = 'rgba(35, 37, 43, 0.1)';
+    }
+}
+
+if (mediaQuery.matches) {
+    window.addEventListener('scroll', handleScroll);
+} else {
+    window.removeEventListener('scroll', handleScroll);
+}
+
+mediaQuery.addEventListener('change', function () {
+    if (mediaQuery.matches) {
+        window.addEventListener('scroll', handleScroll);
+    } else {
+        window.removeEventListener('scroll', handleScroll);
+    }
+});
+
 // ==============
 // FUNÇÕES DA API
 // ==============
